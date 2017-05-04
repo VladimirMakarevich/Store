@@ -17,5 +17,15 @@ namespace Store.BL.Repository
         {
             _db = db;
         }
+
+        public Task<IEnumerable<Product>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product> GetAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
