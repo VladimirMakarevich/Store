@@ -8,13 +8,8 @@ namespace Store.DAL.Context
     {
         public StoreContext()
                 : base("StoreDb")
-            {
-
-        }
-
-        public static StoreContext Create()
         {
-            return new StoreContext();
+
         }
 
         public DbSet<Product> Products { get; set; }
