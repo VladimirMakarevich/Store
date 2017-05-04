@@ -1,9 +1,12 @@
-﻿using Store.BL.Repository.Interfaces;
+﻿using Microsoft.AspNet.Identity;
+using Store.BL.Repository.Interfaces;
 using Store.DAL.Context;
 using Store.DAL.Entities;
+using Store.DAL.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,14 +15,24 @@ namespace Store.BL.Repository
     public class UserRepository : IUserRepository<User>
     {
         private StoreContext _db;
+        private UserManager _userManager;
 
-        public UserRepository(StoreContext db)
+        public UserRepository(StoreContext db, UserManager userManager)
         {
             _db = db;
+            _userManager = userManager;
         }
-        public async Task<User> CheckUserAsync(User user)
+        public async Task<ClaimsIdentity> AuthenticateAsync(string login, string password)
         {
-            return _db.Users.
+            ClaimsIdentity claims = null;
+            var user = await _userManager.FindAsync(login, password);
+
+            if (user != null)
+            {
+                claims = await user.GenerateUserIdentityAsync(_userManager);
+            }
+
+            return claims;
         }
     }
 }

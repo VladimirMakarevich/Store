@@ -64,6 +64,7 @@
     <Compile Include="Entities\PurchaseHistory.cs" />
     <Compile Include="Entities\State.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Identity\UserManager.cs" />
     <Compile Include="Migrations\201705040940275_added-entities-to-store.cs" />
     <Compile Include="Migrations\201705040940275_added-entities-to-store.Designer.cs">
       <DependentUpon>201705040940275_added-entities-to-store.cs</DependentUpon>

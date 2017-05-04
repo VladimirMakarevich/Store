@@ -23,10 +23,13 @@ namespace Store.Web.Controllers
 
         public async Task<string> Post(UserLoginJsonModel userLoginJsonModel)
         {
-            var user = _userMapper.ToUser(userLoginJsonModel);
-            var result = await _unityOfWork.Users.CheckUserAsync();
+            var claim = await _unityOfWork.Users.AuthenticateAsync(userLoginJsonModel.Login, userLoginJsonModel.Password);
 
-            return userLoginJsonModel.Email;
+            if (claim == null)
+            {
+                throw new NullReferenceException();
+            }
+
         }
     }
 }
