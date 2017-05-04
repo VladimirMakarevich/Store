@@ -1,9 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Store.DAL.Entities
 {
     public class Product
     {
+        public Product()
+        {
+            Categories = new List<Category>();
+        }
+
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
@@ -12,8 +18,7 @@ namespace Store.DAL.Entities
         public byte[] ImageData { get; set; }
         public string ImageMimeType { get; set; }
 
-        public int CategoryId { get; set; }
-        public virtual Category Category { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
 
         public Availability Availability { get; set; }
     }

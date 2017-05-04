@@ -68,6 +68,10 @@
     <Compile Include="Migrations\201705040940275_added-entities-to-store.Designer.cs">
       <DependentUpon>201705040940275_added-entities-to-store.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705041002531_changed-dependency-to-product-from-category.cs" />
+    <Compile Include="Migrations\201705041002531_changed-dependency-to-product-from-category.Designer.cs">
+      <DependentUpon>201705041002531_changed-dependency-to-product-from-category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -78,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705040940275_added-entities-to-store.resx">
       <DependentUpon>201705040940275_added-entities-to-store.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041002531_changed-dependency-to-product-from-category.resx">
+      <DependentUpon>201705041002531_changed-dependency-to-product-from-category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

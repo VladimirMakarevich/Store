@@ -24,7 +24,9 @@ namespace Store.DAL.Context
 
         private void ConfigureCascadeDeleting(DbModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<Product>()
+                .HasMany(x => x.Categories)
+                .WithMany(x => x.Products);
         }
     }
 }
