@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Store.DAL.Context
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<PurchaseHistory> PurchaseHistories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
