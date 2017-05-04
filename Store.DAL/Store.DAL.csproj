@@ -64,6 +64,10 @@
     <Compile Include="Entities\PurchaseHistory.cs" />
     <Compile Include="Entities\State.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Migrations\201705040940275_added-entities-to-store.cs" />
+    <Compile Include="Migrations\201705040940275_added-entities-to-store.Designer.cs">
+      <DependentUpon>201705040940275_added-entities-to-store.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,7 +75,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705040940275_added-entities-to-store.resx">
+      <DependentUpon>201705040940275_added-entities-to-store.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
