@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Ninject.Activation;
 using Store.DAL.Entities;
+using Store.Web.Models;
 
 namespace Store.Web.Mappers
 {
@@ -15,7 +16,9 @@ namespace Store.Web.Mappers
 
         private static void RegisterMappings(IMapperConfigurationExpression config)
         {
-            config.CreateMap<UserMapper, User>().ReverseMap();
+            config.CreateMap<RegistrationJsonModel, User>()
+                .ForMember(dest => dest.Login,
+                           opt => opt.MapFrom(src => src.Email));
         }
     }
 }

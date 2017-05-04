@@ -13,9 +13,9 @@ namespace Store.Web.Mappers
             _mapper = mapper;
         }
 
-        public User ToUser(UserLoginJsonModel userLoginJsonModel)
+        public User ToUser(RegistrationJsonModel registrationJsonModel)
         {
-            return _mapper.Map<UserLoginJsonModel, User>(userLoginJsonModel);
+            return _mapper.Map<RegistrationJsonModel, User>(registrationJsonModel);
         }
     }
 }

@@ -34,5 +34,10 @@ namespace Store.BL.Repository
 
             return claims;
         }
+
+        public async Task<IdentityResult> CreateAsync(User user, string password)
+        {
+            return await _userManager.CreateAsync(user, password);
+        }
     }
 }
