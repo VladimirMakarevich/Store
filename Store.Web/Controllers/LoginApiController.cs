@@ -11,11 +11,11 @@ using System.Web.Http;
 
 namespace Store.Web.Controllers
 {
-    public class LoginApiController : DefaultApiController
+    public class AccountApiController : DefaultApiController
     {
         private UserMapper _userMapper;
 
-        public LoginApiController(IUnityOfWork unityOfWork, UserMapper userMapper)
+        public AccountApiController(IUnityOfWork unityOfWork, UserMapper userMapper)
             :base(unityOfWork)
         {
             _userMapper = userMapper;
