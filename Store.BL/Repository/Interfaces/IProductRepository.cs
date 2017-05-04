@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.BL.Repository.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository<T> where T : class
     {
     }
 }
