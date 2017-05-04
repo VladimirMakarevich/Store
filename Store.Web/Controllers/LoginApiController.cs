@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Store.Web.Controllers
@@ -20,10 +21,10 @@ namespace Store.Web.Controllers
             _userMapper = userMapper;
         }
 
-        public string Post(UserLoginJsonModel userLoginJsonModel)
+        public async Task<string> Post(UserLoginJsonModel userLoginJsonModel)
         {
             var user = _userMapper.ToUser(userLoginJsonModel);
-            var result = _unityOfWork.Products.CheckUserAsync();
+            var result = await _unityOfWork.Users.CheckUserAsync();
 
             return userLoginJsonModel.Email;
         }

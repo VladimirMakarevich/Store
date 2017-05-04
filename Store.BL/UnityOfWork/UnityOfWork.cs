@@ -8,6 +8,7 @@ namespace Store.BL.UnityOfWork
     {
         private StoreContext _db;
         private ProductRepository _productRepository;
+        private UserRepository _userRepository;
 
         public UnityOfWork(StoreContext db)
         {
@@ -26,6 +27,16 @@ namespace Store.BL.UnityOfWork
                 if (_productRepository == null)
                     _productRepository = new ProductRepository(_db);
                 return _productRepository;
+            }
+        }
+
+        public UserRepository Users
+        {
+            get
+            {
+                if (_userRepository == null)
+                    _userRepository = new UserRepository(_db);
+                return _userRepository;
             }
         }
 

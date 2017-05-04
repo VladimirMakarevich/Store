@@ -62,7 +62,9 @@
     <Compile Include="Repository\Interfaces\IProductRepository.cs" />
     <Compile Include="Repository\Interfaces\IPurchaseHistoryRepository.cs" />
     <Compile Include="Repository\Interfaces\IStoreRepository.cs" />
+    <Compile Include="Repository\Interfaces\IUserRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="UnityOfWork\IUnityOfWork.cs" />
     <Compile Include="UnityOfWork\UnityOfWork.cs" />
   </ItemGroup>
