@@ -22,18 +22,6 @@ namespace Store.BL.Repository
             _db = db;
             _userManager = userManager;
         }
-        public async Task<ClaimsIdentity> AuthenticateAsync(string login, string password)
-        {
-            ClaimsIdentity claims = null;
-            var user = await _userManager.FindAsync(login, password);
-
-            if (user != null)
-            {
-                claims = await user.GenerateUserIdentityAsync(_userManager);
-            }
-
-            return claims;
-        }
 
         public async Task<IdentityResult> CreateAsync(User user, string password)
         {

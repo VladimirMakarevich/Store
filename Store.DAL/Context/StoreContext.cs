@@ -12,6 +12,11 @@ namespace Store.DAL.Context
 
         }
 
+        public static StoreContext Create()
+        {
+            return new StoreContext();
+        }
+
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<PurchaseHistory> PurchaseHistories { get; set; }

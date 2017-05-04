@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
 using Store.BL.UnityOfWork;
 using Store.Web.Mappers;
 using Store.Web.Models;
@@ -43,14 +44,10 @@ namespace Store.Web.Controllers
             return Ok();
         }
 
-        public async Task Post(UserLoginJsonModel userLoginJsonModel)
+        public IHttpActionResult Logout()
         {
-            var claim = await _unityOfWork.Users.AuthenticateAsync(userLoginJsonModel.Login, userLoginJsonModel.Password);
-
-            if (claim == null)
-            {
-                throw new NullReferenceException();
-            }
+            Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+            return Ok();
         }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
@@ -72,7 +69,6 @@ namespace Store.Web.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
                     return BadRequest();
                 }
 
@@ -80,6 +76,11 @@ namespace Store.Web.Controllers
             }
 
             return null;
+        }
+
+        private IAuthenticationManager Authentication
+        {
+            get { return Request.GetOwinContext().Authentication; }
         }
     }
 }
