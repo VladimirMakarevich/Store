@@ -4,7 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Store.DAL.Context
 {
-    public class StoreContext : DbContext
+    public class StoreContext : IdentityDbContext<User>
     {
         public StoreContext()
                 : base("StoreDb")
