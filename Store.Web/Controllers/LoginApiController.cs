@@ -21,7 +21,7 @@ namespace Store.Web.Controllers
             _userMapper = userMapper;
         }
 
-        public async Task<string> Post(UserLoginJsonModel userLoginJsonModel)
+        public async Task Post(UserLoginJsonModel userLoginJsonModel)
         {
             var claim = await _unityOfWork.Users.AuthenticateAsync(userLoginJsonModel.Login, userLoginJsonModel.Password);
 
