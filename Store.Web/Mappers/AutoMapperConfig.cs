@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Ninject.Activation;
+using Store.DAL.Entities;
 
 namespace Store.Web.Mappers
 {
@@ -14,6 +15,7 @@ namespace Store.Web.Mappers
 
         private static void RegisterMappings(IMapperConfigurationExpression config)
         {
+            config.CreateMap<UserMapper, User>().ReverseMap();
         }
     }
 }
