@@ -11,6 +11,7 @@ namespace Store.Web.Controllers
     public class DefaultApiController : ApiController
     {
         public IUnityOfWork _unityOfWork;
+
         public DefaultApiController(IUnityOfWork unityOfWork)
         {
             _unityOfWork = unityOfWork;

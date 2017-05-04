@@ -23,7 +23,7 @@ namespace Store.Web.Controllers
         public string Post(UserLoginJsonModel userLoginJsonModel)
         {
             var user = _userMapper.ToUser(userLoginJsonModel);
-            var result = _unityOfWork.CheckUserAsync();
+            var result = _unityOfWork.Products.CheckUserAsync();
 
             return userLoginJsonModel.Email;
         }
