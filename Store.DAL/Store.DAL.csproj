@@ -46,6 +46,9 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\Store.Web\Bin\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -64,7 +67,6 @@
     <Compile Include="Entities\PurchaseHistory.cs" />
     <Compile Include="Entities\State.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Identity\UserManager.cs" />
     <Compile Include="Migrations\201705040940275_added-entities-to-store.cs" />
     <Compile Include="Migrations\201705040940275_added-entities-to-store.Designer.cs">
       <DependentUpon>201705040940275_added-entities-to-store.cs</DependentUpon>

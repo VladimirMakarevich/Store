@@ -73,11 +73,16 @@
       <Project>{3E94D1AF-3539-4F23-B1C1-637D2284A5DE}</Project>
       <Name>Store.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Store.Identity\Store.Identity.csproj">
+      <Project>{870E0F0C-A9D6-406F-BACA-C778120C3276}</Project>
+      <Name>Store.Identity</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

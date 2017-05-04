@@ -2,12 +2,7 @@
 using Store.BL.Repository.Interfaces;
 using Store.DAL.Context;
 using Store.DAL.Entities;
-using Store.DAL.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
+using Store.Identity;
 using System.Threading.Tasks;
 
 namespace Store.BL.Repository
@@ -16,7 +11,10 @@ namespace Store.BL.Repository
     {
         private StoreContext _db;
         private UserManager _userManager;
-
+        public UserRepository(StoreContext db)
+        {
+            _db = db;
+        }
         public UserRepository(StoreContext db, UserManager userManager)
         {
             _db = db;

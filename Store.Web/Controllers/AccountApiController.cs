@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
 using Store.BL.UnityOfWork;
 using Store.Web.Mappers;
 using Store.Web.Models;

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.OAuth;
 using Owin;
+using System;
+using Microsoft.Owin.Security.OAuth;
 using Store.DAL.Context;
-using Store.DAL.Identity;
+using Store.Identity.Provider;
+using Store.Identity;
 
 namespace Store.Web
 {
@@ -37,7 +36,6 @@ namespace Store.Web
             };
 
             app.UseOAuthBearerTokens(OAuthOptions);
-
         }
     }
 }
