@@ -210,6 +210,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Store.BL\Store.BL.csproj">
+      <Project>{859694cc-77e5-4278-96f6-f915938289a5}</Project>
+      <Name>Store.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Store.DAL\Store.DAL.csproj">
+      <Project>{3e94d1af-3539-4f23-b1c1-637d2284a5de}</Project>
+      <Name>Store.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
