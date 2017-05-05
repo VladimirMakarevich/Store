@@ -264,7 +264,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DefaultApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -278,7 +277,6 @@
     <Compile Include="Models\RegistrationJsonModel.cs" />
     <Compile Include="Models\UserLoginJsonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
