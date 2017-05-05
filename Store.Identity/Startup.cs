@@ -1,9 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(Store.Web.Startup))]
+[assembly: OwinStartup(typeof(Store.Identity.Startup))]
 
-namespace Store.Web
+namespace Store.Identity
 {
     public partial class Startup
     {

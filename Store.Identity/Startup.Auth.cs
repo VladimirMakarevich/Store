@@ -8,7 +8,7 @@ using Store.DAL.Context;
 using Store.Identity.Provider;
 using Store.Identity;
 
-namespace Store.Web
+namespace Store.Identity
 {
     public partial class Startup
     {
