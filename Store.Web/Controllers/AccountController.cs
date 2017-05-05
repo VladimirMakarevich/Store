@@ -19,27 +19,30 @@ using Store.Web.Models;
 
 namespace Store.Web.Controllers
 {
-    [AllowAnonymous]
-    public class AccountApiController : DefaultApiController
+    [RoutePrefix("api/Account")]
+    public class AccountController : DefaultController
     {
         private UserMapper _userMapper;
 
-        public AccountApiController(IUnityOfWork unityOfWork, UserMapper userMapper)
-            :base(unityOfWork)
+        public AccountController(IUnityOfWork unityOfWork, UserMapper userMapper)
+            : base(unityOfWork)
         {
             _userMapper = userMapper;
         }
 
-        public async Task<IHttpActionResult> Register(RegistrationJsonModel registrationJsonModel)
+        [AllowAnonymous]
+        [Route("Register")]
+        [HttpPost]
+        public async Task<IHttpActionResult> Register([FromBody]RegistrationUser registrationUser)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var user = _userMapper.ToUser(registrationJsonModel);
+            var user = _userMapper.ToUser(registrationUser);
 
-            var result = await _unityOfWork.Users.CreateAsync(user, registrationJsonModel.Password);
+            var result = await _unityOfWork.Users.CreateAsync(user, registrationUser.Password);
 
             if (!result.Succeeded)
             {

@@ -8,11 +8,11 @@ using System.Web.Http;
 
 namespace Store.Web.Controllers
 {
-    public class DefaultApiController : ApiController
+    public class DefaultController : ApiController
     {
         public IUnityOfWork _unityOfWork;
 
-        public DefaultApiController(IUnityOfWork unityOfWork)
+        public DefaultController(IUnityOfWork unityOfWork)
         {
             _unityOfWork = unityOfWork;
         }

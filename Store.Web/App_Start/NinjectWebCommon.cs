@@ -11,22 +11,25 @@ namespace Store.Web
     using Ninject;
     using Ninject.Web.Common;
 
-    public static class NinjectWebCommon 
+    using System.Web.Http;
+    using Ninject.Web.WebApi;
+
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         public static void Stop()
         {
             bootstrapper.ShutDown();
         }
-        
+
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
@@ -36,6 +39,7 @@ namespace Store.Web
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
                 RegisterServices(kernel);
+                GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
                 return kernel;
             }
             catch
@@ -48,6 +52,6 @@ namespace Store.Web
         private static void RegisterServices(IKernel kernel)
         {
             System.Web.Mvc.DependencyResolver.SetResolver(new Store.Web.Dependencies.NinjectDependencyResolver(kernel));
-        }        
+        }
     }
 }

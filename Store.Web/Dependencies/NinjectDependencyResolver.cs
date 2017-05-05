@@ -1,11 +1,14 @@
-﻿using Ninject;
+﻿using AutoMapper;
+using Ninject;
 using Store.BL.UnityOfWork;
+using Store.Web.Mappers;
 using System;
 using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace Store.Web.Dependencies
 {
-    public class NinjectDependencyResolver
+    public class NinjectDependencyResolver : IDependencyResolver
     {
         private IKernel _kernel;
 
@@ -28,6 +31,10 @@ namespace Store.Web.Dependencies
         private void AddBindings()
         {
             _kernel.Bind<IUnityOfWork>().To<UnityOfWork>();
+
+            _kernel.Bind<IMapper>().ToMethod(AutoMapperConfig.GetMapper).InSingletonScope();
+
+            _kernel.Bind<UserMapper>().ToSelf().InSingletonScope();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Store.Web.Mappers
 
         private static void RegisterMappings(IMapperConfigurationExpression config)
         {
-            config.CreateMap<RegistrationJsonModel, User>()
+            config.CreateMap<RegistrationUser, User>()
                 .ForMember(dest => dest.Login,
                            opt => opt.MapFrom(src => src.Email));
         }
