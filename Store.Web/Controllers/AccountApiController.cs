@@ -1,16 +1,21 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Http;
+using System.Web.Http.ModelBinding;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.OAuth;
 using Store.BL.UnityOfWork;
 using Store.Web.Mappers;
 using Store.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Http;
 
 namespace Store.Web.Controllers
 {
@@ -25,7 +30,6 @@ namespace Store.Web.Controllers
             _userMapper = userMapper;
         }
 
-        [AllowAnonymous]
         public async Task<IHttpActionResult> Register(RegistrationJsonModel registrationJsonModel)
         {
             if (!ModelState.IsValid)
