@@ -76,9 +76,17 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ninject\DependencyInjectedTest.cs" />
+    <Compile Include="Ninject\NinjectTestingModule.cs" />
+    <Compile Include="Ninject\ProcessingScope.cs" />
+    <Compile Include="Ninject\ScopeObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Store.BL\Store.BL.csproj">
+      <Project>{859694CC-77E5-4278-96F6-F915938289A5}</Project>
+      <Name>Store.BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Store.Web\Store.Web.csproj">
       <Project>{AD09156D-6C2F-44B2-89AF-8B6510CA7A38}</Project>
       <Name>Store.Web</Name>
@@ -87,6 +95,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
