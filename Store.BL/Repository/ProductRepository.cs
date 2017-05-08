@@ -3,6 +3,7 @@ using Store.DAL.Context;
 using Store.DAL.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,14 +19,14 @@ namespace Store.BL.Repository
             _db = db;
         }
 
-        public Task<IEnumerable<Product>> GetAllAsync()
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _db.Products.ToListAsync();
         }
 
-        public Task<Product> GetAsync(int id)
+        public async Task<Product> GetAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _db.Products.FirstOrDefaultAsync(m => m.Id == id);
         }
     }
 }
