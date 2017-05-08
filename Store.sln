@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Web", "Store.Web\Store.Web.csproj", "{AD09156D-6C2F-44B2-89AF-8B6510CA7A38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Api", "Store.Api\Store.Api.csproj", "{AD09156D-6C2F-44B2-89AF-8B6510CA7A38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Web.Tests", "Store.Web.Tests\Store.Web.Tests.csproj", "{C95C00F1-7265-4655-B36B-B5CA0E4C438F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Api.Tests", "Store.Api.Tests\Store.Api.Tests.csproj", "{C95C00F1-7265-4655-B36B-B5CA0E4C438F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.DAL", "Store.DAL\Store.DAL.csproj", "{3E94D1AF-3539-4F23-B1C1-637D2284A5DE}"
 EndProject
