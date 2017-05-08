@@ -18,14 +18,17 @@ namespace Store.DAL.Migrations
         {
             var category = new List<Category>
             {
-                new Category { Name = "Category1", Description = "Description1" }
+                new Category { Name = "Category1", Description = "Description1" },
+                new Category { Name = "Category2", Description = "Description2" }
             };
             category.ForEach(s => context.Categories.Add(s));
             context.SaveChanges();
 
             var product = new List<Product>
             {
-                new Product { Name = "Product1", Description = "Description1", Price = 12, ImageData = null, ImageMimeType = null, Availability = Availability.InStock }
+                new Product { Name = "Product1", Description = "Description1", Price = 12, ImageData = null, ImageMimeType = null, Availability = Availability.InStock },
+                new Product { Name = "Product2", Description = "Description2", Price = 32, ImageData = null, ImageMimeType = null, Availability = Availability.NotAvailable },
+                new Product { Name = "Product3", Description = "Description3", Price = 23, ImageData = null, ImageMimeType = null, Availability = Availability.ToOrder }
             };
             product.ForEach(s => context.Products.Add(s));
             context.SaveChanges();
