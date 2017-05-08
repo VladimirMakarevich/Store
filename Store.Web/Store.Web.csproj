@@ -276,12 +276,15 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Dependencies\NinjectDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mappers\AutoMapperConfig.cs" />
+    <Compile Include="Mappers\ProductMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
+    <Compile Include="Models\ProductJsonModel.cs" />
     <Compile Include="Models\RegistrationUser.cs" />
     <Compile Include="Models\UserLoginJsonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

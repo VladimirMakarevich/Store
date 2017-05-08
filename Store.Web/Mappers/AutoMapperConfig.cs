@@ -19,6 +19,8 @@ namespace Store.Web.Mappers
             config.CreateMap<RegistrationUser, User>()
                 .ForMember(dest => dest.Login,
                            opt => opt.MapFrom(src => src.Email));
+
+            config.CreateMap<ProductJsonModel, Product>();
         }
     }
 }
