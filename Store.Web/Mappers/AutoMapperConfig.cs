@@ -20,7 +20,7 @@ namespace Store.Web.Mappers
                 .ForMember(dest => dest.Login,
                            opt => opt.MapFrom(src => src.Email));
 
-            config.CreateMap<ProductJsonModel, Product>();
+            config.CreateMap<ProductJsonModel, Product>().ReverseMap();
         }
     }
 }
