@@ -91,6 +91,14 @@
       <Project>{859694CC-77E5-4278-96F6-F915938289A5}</Project>
       <Name>Store.BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Store.DAL\Store.DAL.csproj">
+      <Project>{3e94d1af-3539-4f23-b1c1-637d2284a5de}</Project>
+      <Name>Store.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Store.Identity\Store.Identity.csproj">
+      <Project>{870e0f0c-a9d6-406f-baca-c778120c3276}</Project>
+      <Name>Store.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Store.Web\Store.Web.csproj">
       <Project>{AD09156D-6C2F-44B2-89AF-8B6510CA7A38}</Project>
       <Name>Store.Web</Name>
