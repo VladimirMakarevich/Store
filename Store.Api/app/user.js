@@ -1,5 +1,5 @@
-"use strict";
-class User {
-}
-exports.User = User;
+//export class User {
+//    email: string;
+//    password: string;
+//} 
 //# sourceMappingURL=user.js.map

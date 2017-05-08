@@ -31,9 +31,9 @@ namespace Store.Api.Controllers
         }
 
         [AllowAnonymous]
-        [Route("Register")]
+        [Route("PostRegister")]
         [HttpPost]
-        public async Task<IHttpActionResult> Register([FromBody]RegistrationUser registrationUser)
+        public async Task<IHttpActionResult> PostRegister([FromBody]RegistrationUser registrationUser)
         {
             if (!ModelState.IsValid)
             {

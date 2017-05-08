@@ -17,6 +17,7 @@ using Store.Api.Models;
 
 namespace Store.Api.Controllers
 {
+    [RoutePrefix("api/Products")]
     public class ProductsController : DefaultController
     {
         private ProductMapper _productMapper;
@@ -27,6 +28,8 @@ namespace Store.Api.Controllers
             _productMapper = productMapper;
         }
 
+        [HttpGet]
+        [Route("GetProducts")]
         public async Task<IEnumerable<ProductJsonModel>> GetProducts()
         {
             IEnumerable<Product> products = await _unityOfWork.Products.GetAllAsync();
@@ -35,7 +38,9 @@ namespace Store.Api.Controllers
             return productListJsonModel;
         }
 
-        [ResponseType(typeof(Product))]
+        [HttpGet]
+        [Route("GetProduct")]
+        [ResponseType(typeof(ProductJsonModel))]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
             Product product = await _unityOfWork.Products.GetAsync(id);

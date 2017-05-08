@@ -1,5 +1,6 @@
-"use strict";
-class RegistrationUser {
-}
-exports.RegistrationUser = RegistrationUser;
+//export class RegistrationUser {
+//    email: string;
+//    password: string;
+//    confirmPassword: string;
+//} 
 //# sourceMappingURL=registrationUser.js.map
