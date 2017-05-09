@@ -1,8 +1,6 @@
 ﻿import { Component, OnInit} from '@angular/core';
 import { HttpService} from './http.service';
-/*import { HttpProduct} from './http.service';*/
 import { RegistrationUser} from './registrationUser';
-/*import { Product} from './product';*/
 
 @Component({
     selector: 'registration-app',
@@ -29,9 +27,9 @@ import { RegistrationUser} from './registrationUser';
 })
 export class AppComponent {
 
-    registrationUser: RegistrationUser = new RegistrationUser();
+    registrationUser: RegistrationUser = new RegistrationUser(); // данные вводимого пользователя
 
-    receivedUser: RegistrationUser; 
+    receivedUser: RegistrationUser; // полученный пользователь
     done: boolean = false;
     constructor(private httpService: HttpService) { }
     submit(registrationUser) {
@@ -39,25 +37,3 @@ export class AppComponent {
             .subscribe((data) => { this.receivedUser = data; this.done = true; });
     }
 }
-
-/*@Component({
-    selector: 'get-products',
-    template: `<div>
-                    <p>Id: {{product?.Id}}</p>
-                    <p>Name: {{product?.Name}}</p>
-                    <p>Description: {{product?.Description}}</p>
-                    <p>Price: {{product?.Price}}</p>
-               </div>`,
-    providers: [HttpProduct]
-})
-export class AppComponent implements OnInit { 
-  
-    product: Product;
-     
-    constructor(private httpProduct: HttpProduct){}
-     
-    ngOnInit(){
-         
-        this.httpProduct.getData().subscribe((data: Response) => this.product=data.json());
-    }
-}*/

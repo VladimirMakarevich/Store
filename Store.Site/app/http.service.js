@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const http_1 = require("@angular/http");
 const http_2 = require("@angular/http");
+const http_3 = require("@angular/http");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/debounceTime");
 require("rxjs/add/operator/distinctUntilChanged");
@@ -20,17 +21,34 @@ require("rxjs/add/operator/switchMap");
 require("rxjs/add/operator/toPromise");
 require("rxjs/add/observable/throw");
 require("rxjs/Rx");
-require("./rxjs-operators");
+//import './rxjs-operators';
 let HttpService = class HttpService {
     constructor(http) {
         this.http = http;
     }
     postData(obj) {
-        let headers = new http_2.Headers({ 'Content-Type': 'application/json;charset=utf-8' });
-        let body = JSON.stringify({ obj });
-        return this.http.post('http://localhost:51377/api/Account/PostRegister/', body, { headers: headers })
-            .map((res) => res.json())
-            .subscribe();
+        let headers = new http_2.Headers({
+            'Content-Type': 'application/json'
+        });
+        headers.append('Accept', 'application/json; charset=utf-8');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, DELETE, PUT');
+        headers.append('Access-Control-Allow-Headers', "X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding");
+        console.log("headers1: value" + JSON.stringify(headers));
+        let options = new http_3.RequestOptions({ method: 'POST', headers: headers });
+        let body = JSON.stringify(obj);
+        //postJson(url: string, data: any): Observable < Response > {
+        //    return this.http.post(
+        //        url,
+        //        JSON.stringify(data),
+        //        { headers: this.headers }
+        //    )
+        //};
+        let url = "http://localhost:51377/api/Account/PostRegister/";
+        return this.http.post(url, body, options);
+        //return this.http.post('http://localhost:51377/api/Account/PostRegister/', headers, body).subscribe(data => {
+        //console.log(data);
+        //.map((resp: Response) => resp.json()).subscribe();
+        //.catch((error: any) => { return Observable.throw(error); });
     }
     ;
 };
@@ -40,15 +58,15 @@ HttpService = __decorate([
 ], HttpService);
 exports.HttpService = HttpService;
 ;
-/*
-@Injectable()
-export class HttpProduct {
-
-    constructor(private http: Http) { }
-     
-    getData(){
-        return this.http.get('http://localhost:51377/api/Products/GetProducts/');
-    }
-}
-*/ 
+//constructor(protected http: Http) {}
+//headers = new Headers({
+//    'Content-Type': 'application/json'
+//});
+//postJson(url: string, data: any): Observable < Response > {
+//    return this.http.post(
+//        url,
+//        JSON.stringify(data),
+//        { headers: this.headers }
+//    )
+//} 
 //# sourceMappingURL=http.service.js.map

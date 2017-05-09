@@ -5,8 +5,7 @@
     "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",
     "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "postinstall": "typings install"
+    "tsc:w": "tsc -w"
   },
   "dependencies": {
     "@angular/common": "~4.0.0",

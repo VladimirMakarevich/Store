@@ -3,21 +3,25 @@
     Page.Title = "Home Page";
 }
 
-@section featured {
-<section class="featured">
-    <div class="content-wrapper">
-        <hgroup class="title">
-            <h1>@Page.Title.</h1>
-            <h2>Modify this template to jump-start your ASP.NET Web Pages application.</h2>
-        </hgroup>
-    </div>
-    <div>
-        <registration-app>Wiating...</registration-app>
-    </div>
-    <div>
-        @*<get-products>Wiating...</get-products>*@
-    </div>
-</section>
-}
+<script src="~/node_modules/core-js/client/shim.min.js"></script>
+<script src="~/node_modules/zone.js/dist/zone.js"></script>
+<script src="~/node_modules/systemjs/dist/system.src.js"></script>
+<script src="~/systemjs.config.js"></script>
+<script>
+        System.import('app').catch(function (err) { console.error(err); });
+</script>
 
-<h3>We suggest the following:</h3>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@Page.Title.</h1>
+            </hgroup>
+            <p>
+                <div>
+                    <registration-app>Wiating...</registration-app>
+                </div>
+            </p>
+        </div>
+    </section>
+}

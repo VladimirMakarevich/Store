@@ -11,13 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const http_service_1 = require("./http.service");
-/*import { HttpProduct} from './http.service';*/
 const registrationUser_1 = require("./registrationUser");
-/*import { Product} from './product';*/
 let AppComponent = class AppComponent {
     constructor(httpService) {
         this.httpService = httpService;
-        this.registrationUser = new registrationUser_1.RegistrationUser();
+        this.registrationUser = new registrationUser_1.RegistrationUser(); // данные вводимого пользователя
         this.done = false;
     }
     submit(registrationUser) {
@@ -52,25 +50,4 @@ AppComponent = __decorate([
     __metadata("design:paramtypes", [http_service_1.HttpService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
-/*@Component({
-    selector: 'get-products',
-    template: `<div>
-                    <p>Id: {{product?.Id}}</p>
-                    <p>Name: {{product?.Name}}</p>
-                    <p>Description: {{product?.Description}}</p>
-                    <p>Price: {{product?.Price}}</p>
-               </div>`,
-    providers: [HttpProduct]
-})
-export class AppComponent implements OnInit {
-  
-    product: Product;
-     
-    constructor(private httpProduct: HttpProduct){}
-     
-    ngOnInit(){
-         
-        this.httpProduct.getData().subscribe((data: Response) => this.product=data.json());
-    }
-}*/ 
 //# sourceMappingURL=app.component.js.map
