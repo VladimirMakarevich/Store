@@ -16,10 +16,12 @@ using Microsoft.Owin.Security.OAuth;
 using Store.BL.UnityOfWork;
 using Store.Api.Mappers;
 using Store.Api.Models;
+using System.Web.Http.Cors;
 
 namespace Store.Api.Controllers
 {
     [RoutePrefix("api/Account")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AccountController : DefaultController
     {
         private UserMapper _userMapper;
