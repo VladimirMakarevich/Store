@@ -286,6 +286,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\PaypalController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Dependencies\NinjectDependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
@@ -336,6 +337,10 @@
     <ProjectReference Include="..\Store.Identity\Store.Identity.csproj">
       <Project>{870E0F0C-A9D6-406F-BACA-C778120C3276}</Project>
       <Name>Store.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Store.PayPal\Store.PaypalRest.csproj">
+      <Project>{ccdcfcd1-915f-40de-97b0-2d7c98cd8960}</Project>
+      <Name>Store.PaypalRest</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

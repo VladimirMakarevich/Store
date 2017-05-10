@@ -34,6 +34,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Store.Site", "Store.Site\",
 		SlnRelativePath = "Store.Site\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.PaypalRest", "Store.PayPal\Store.PaypalRest.csproj", "{CCDCFCD1-915F-40DE-97B0-2D7C98CD8960}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{5C22470B-FA9B-405A-B29D-C678BB59CA03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C22470B-FA9B-405A-B29D-C678BB59CA03}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C22470B-FA9B-405A-B29D-C678BB59CA03}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{CCDCFCD1-915F-40DE-97B0-2D7C98CD8960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCDCFCD1-915F-40DE-97B0-2D7C98CD8960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCDCFCD1-915F-40DE-97B0-2D7C98CD8960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCDCFCD1-915F-40DE-97B0-2D7C98CD8960}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
