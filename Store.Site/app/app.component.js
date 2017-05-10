@@ -15,7 +15,7 @@ const registrationUser_1 = require("./registrationUser");
 let AppComponent = class AppComponent {
     constructor(httpService) {
         this.httpService = httpService;
-        this.registrationUser = new registrationUser_1.RegistrationUser(); // данные вводимого пользователя
+        this.registrationUser = new registrationUser_1.RegistrationUser(); // данные пользователя
         this.done = false;
     }
     submit(registrationUser) {
@@ -50,4 +50,27 @@ AppComponent = __decorate([
     __metadata("design:paramtypes", [http_service_1.HttpService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
+//@Component({
+//    selector: 'product-app',
+//    template: `<div class="form-group">
+//                    <label>Email</label>
+//                    <input class="form-control" name="Email" [(ngModel)]="registrationUser.Email" />
+//                </div>
+//                <div class="form-group">
+//                    <label>Password</label>
+//                    <input class="form-control" name="Password" [(ngModel)]="registrationUser.Password" />
+//                </div>
+//                <div class="form-group">
+//                    <label>Password</label>
+//                    <input class="form-control" name="ConfirmPassword" [(ngModel)]="registrationUser.ConfirmPassword" />
+//                </div>
+//                <div class="form-group">
+//                    <button class="btn btn-default" (click)="submit(registrationUser)">Отправить</button>
+//                </div>
+//                <div *ngIf="done">
+//                    <div>Получено от сервера:</div>
+//                    <div>{{receivedUser.message}}</div>
+//                </div>`,
+//    providers: [HttpService]
+//}) 
 //# sourceMappingURL=app.component.js.map

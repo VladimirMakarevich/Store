@@ -21,7 +21,6 @@ require("rxjs/add/operator/switchMap");
 require("rxjs/add/operator/toPromise");
 require("rxjs/add/observable/throw");
 require("rxjs/Rx");
-//import './rxjs-operators';
 let HttpService = class HttpService {
     constructor(http) {
         this.http = http;
@@ -36,13 +35,6 @@ let HttpService = class HttpService {
         console.log("headers1: value" + JSON.stringify(headers));
         let options = new http_3.RequestOptions({ method: 'POST', headers: headers });
         let body = JSON.stringify(obj);
-        //postJson(url: string, data: any): Observable < Response > {
-        //    return this.http.post(
-        //        url,
-        //        JSON.stringify(data),
-        //        { headers: this.headers }
-        //    )
-        //};
         let url = "http://localhost:51377/api/Account/PostRegister/";
         return this.http.post(url, body, options);
         //return this.http.post('http://localhost:51377/api/Account/PostRegister/', headers, body).subscribe(data => {
@@ -58,15 +50,4 @@ HttpService = __decorate([
 ], HttpService);
 exports.HttpService = HttpService;
 ;
-//constructor(protected http: Http) {}
-//headers = new Headers({
-//    'Content-Type': 'application/json'
-//});
-//postJson(url: string, data: any): Observable < Response > {
-//    return this.http.post(
-//        url,
-//        JSON.stringify(data),
-//        { headers: this.headers }
-//    )
-//} 
 //# sourceMappingURL=http.service.js.map

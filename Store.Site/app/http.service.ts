@@ -13,7 +13,6 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/observable/throw';
 import 'rxjs/Rx';
-//import './rxjs-operators';
 
 
 @Injectable()
@@ -34,15 +33,8 @@ export class HttpService {
 
         let body = JSON.stringify(obj);
 
-        //postJson(url: string, data: any): Observable < Response > {
-        //    return this.http.post(
-        //        url,
-        //        JSON.stringify(data),
-        //        { headers: this.headers }
-        //    )
-        //};
-
         let url = "http://localhost:51377/api/Account/PostRegister/";
+
         return this.http.post(url, body, options);
 
         //return this.http.post('http://localhost:51377/api/Account/PostRegister/', headers, body).subscribe(data => {
@@ -51,17 +43,3 @@ export class HttpService {
         //.catch((error: any) => { return Observable.throw(error); });
     };
 };
-
-//constructor(protected http: Http) {}
-
-//headers = new Headers({
-//    'Content-Type': 'application/json'
-//});
-
-//postJson(url: string, data: any): Observable < Response > {
-//    return this.http.post(
-//        url,
-//        JSON.stringify(data),
-//        { headers: this.headers }
-//    )
-//}

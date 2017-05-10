@@ -25,9 +25,10 @@ import { RegistrationUser} from './registrationUser';
                 </div>`,
     providers: [HttpService]
 })
+
 export class AppComponent {
 
-    registrationUser: RegistrationUser = new RegistrationUser(); // данные вводимого пользователя
+    registrationUser: RegistrationUser = new RegistrationUser(); // данные пользователя
 
     receivedUser: RegistrationUser; // полученный пользователь
     done: boolean = false;
@@ -37,3 +38,27 @@ export class AppComponent {
             .subscribe((data) => { this.receivedUser = data; this.done = true; });
     }
 }
+
+//@Component({
+//    selector: 'product-app',
+//    template: `<div class="form-group">
+//                    <label>Email</label>
+//                    <input class="form-control" name="Email" [(ngModel)]="registrationUser.Email" />
+//                </div>
+//                <div class="form-group">
+//                    <label>Password</label>
+//                    <input class="form-control" name="Password" [(ngModel)]="registrationUser.Password" />
+//                </div>
+//                <div class="form-group">
+//                    <label>Password</label>
+//                    <input class="form-control" name="ConfirmPassword" [(ngModel)]="registrationUser.ConfirmPassword" />
+//                </div>
+//                <div class="form-group">
+//                    <button class="btn btn-default" (click)="submit(registrationUser)">Отправить</button>
+//                </div>
+//                <div *ngIf="done">
+//                    <div>Получено от сервера:</div>
+//                    <div>{{receivedUser.message}}</div>
+//                </div>`,
+//    providers: [HttpService]
+//})
