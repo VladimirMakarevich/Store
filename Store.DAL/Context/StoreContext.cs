@@ -7,7 +7,7 @@ namespace Store.DAL.Context
     public class StoreContext : IdentityDbContext<User>
     {
         public StoreContext()
-                : base("StoreDb")
+                : base("Store")
         {
 
         }
