@@ -1,4 +1,5 @@
 ﻿using PayPal.Api;
+using Store.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Store.PaypalRest
     {
         private static Payment payment;
 
-        public static  Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
+        public static Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
         {
             var paymentExecution = new PaymentExecution() { payer_id = payerId };
             payment = new Payment() { id = paymentId };
@@ -19,20 +20,26 @@ namespace Store.PaypalRest
             return payment.Execute(apiContext, paymentExecution);
         }
 
-        public static Payment CreatePayment(APIContext apiContext, string redirectUrl)
+        public static Payment CreatePayment(APIContext apiContext, string redirectUrl, Product product)
         {
-            var itemList = new ItemList() { items = new List<Item>() };
+            var itemList = new ItemList()
+            {
+                items = new List<Item>()
+            };
 
             itemList.items.Add(new Item()
             {
-                name = "Item Name",
+                name = product.Name,
                 currency = "USD",
-                price = "5",
+                price = product.Price.ToString(),
                 quantity = "1",
                 sku = "sku"
             });
 
-            var payer = new Payer() { payment_method = "paypal" };
+            var payer = new Payer()
+            {
+                payment_method = "paypal"
+            };
 
             var redirUrls = new RedirectUrls()
             {
@@ -50,7 +57,7 @@ namespace Store.PaypalRest
             var amount = new Amount()
             {
                 currency = "USD",
-                total = "7", 
+                total = product.Price.ToString(),
                 details = details
             };
 

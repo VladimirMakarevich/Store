@@ -1,5 +1,6 @@
 ﻿using log4net.Repository.Hierarchy;
 using PayPal.Api;
+using Store.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Store.PaypalRest
 {
     public static class PaymentWithPaypal
     {
-        public static void Paypal(string payerId, string redirectUrl)
+        public static void Paypal(string redirectUrl, Product product)
         {
             APIContext apiContext = Configuration.GetAPIContext();
 
@@ -18,7 +19,7 @@ namespace Store.PaypalRest
             {
                 var guid = Convert.ToString((new Random()).Next(100000));
 
-                var createdPayment = ExecPayment.CreatePayment(apiContext, redirectUrl);
+                var createdPayment = ExecPayment.CreatePayment(apiContext, redirectUrl, product);
 
                 var links = createdPayment.links.GetEnumerator();
 

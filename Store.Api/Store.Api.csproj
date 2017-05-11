@@ -295,6 +295,7 @@
     <Compile Include="Mappers\AutoMapperConfig.cs" />
     <Compile Include="Mappers\ProductMapper.cs" />
     <Compile Include="Mappers\UserMapper.cs" />
+    <Compile Include="Models\PaymentPaypalJsonModel.cs" />
     <Compile Include="Models\ProductJsonModel.cs" />
     <Compile Include="Models\RegistrationUser.cs" />
     <Compile Include="Models\UserLoginJsonModel.cs" />

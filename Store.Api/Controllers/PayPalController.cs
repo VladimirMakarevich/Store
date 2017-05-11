@@ -1,22 +1,36 @@
-﻿using System;
+﻿using Store.Api.Mappers;
+using Store.Api.Models;
+using Store.BL.UnityOfWork;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Store.Api.Controllers
 {
-    public class PaypalController : ApiController
+    [RoutePrefix("api/Paypal")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    public class PaypalController : DefaultController
     {
-        public PaypalController()
-        {
+        private ProductMapper _productMapper;
 
+        public PaypalController(IUnityOfWork unityOfWork, ProductMapper productMapper)
+            : base(unityOfWork)
+        {
+            _productMapper = productMapper;
         }
 
-        public IHttpActionResult PaymentWithPaypal(string payerId)
+        [Route("PaymentWithPaypal")]
+        [HttpPost]
+        public async Task<IHttpActionResult> PaymentWithPaypal(PaymentPaypalJsonModel paymentPaypalJsonModel)
         {
-            PaypalRest.PaymentWithPaypal.Paypal("ASD", "dad");
+            var product = await  _unityOfWork.Products.GetAsync(paymentPaypalJsonModel.ProductId);
+
+            PaypalRest.PaymentWithPaypal.Paypal(paymentPaypalJsonModel.Url, product);
 
             return Ok("Success");
         }
