@@ -14,10 +14,12 @@ using Store.DAL.Entities;
 using Store.BL.UnityOfWork;
 using Store.Api.Mappers;
 using Store.Api.Models;
+using System.Web.Http.Cors;
 
 namespace Store.Api.Controllers
 {
     [RoutePrefix("api/Products")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ProductsController : DefaultController
     {
         private ProductMapper _productMapper;

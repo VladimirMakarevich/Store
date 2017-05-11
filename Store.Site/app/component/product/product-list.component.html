@@ -1,0 +1,13 @@
+﻿<h1>Products</h1>
+
+<div class="panel panel-default panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Products in the stock</h3>
+    </div>
+    <div class="panel-body" *ngFor="let product of listProducts">
+        <p>{{product.Id}}</p>
+        <p>{{product.Name}}</p>
+        <p>{{product.Description}}</p>
+        <p>{{product.Price}}</p>
+    </div>
+</div>

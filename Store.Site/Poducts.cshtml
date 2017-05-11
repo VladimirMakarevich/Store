@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Products Page";
+}
+
+<script src="~/node_modules/core-js/client/shim.min.js"></script>
+<script src="~/node_modules/zone.js/dist/zone.js"></script>
+<script src="~/node_modules/systemjs/dist/system.src.js"></script>
+<script src="~/systemjs.config.js"></script>
+<script>
+        System.import('app').catch(function (err) { console.error(err); });
+</script>
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@Page.Title</h1>
+            </hgroup>
+            <p>
+                <div>
+                    <product-list>Wiating...</product-list>
+                </div>
+            </p>
+        </div>
+    </section>
+}
