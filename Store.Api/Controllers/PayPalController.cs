@@ -1,5 +1,6 @@
 ﻿using Store.Api.Mappers;
 using Store.Api.Models;
+using Store.Api.Paypal;
 using Store.BL.UnityOfWork;
 using System;
 using System.Collections.Generic;
@@ -17,22 +18,28 @@ namespace Store.Api.Controllers
     public class PaypalController : DefaultController
     {
         private ProductMapper _productMapper;
+        private PaymentWithPaypal _paymentWithPaypal;
 
-        public PaypalController(IUnityOfWork unityOfWork, ProductMapper productMapper)
+        public PaypalController(IUnityOfWork unityOfWork, ProductMapper productMapper, PaymentWithPaypal paymentWithPaypal)
             : base(unityOfWork)
         {
             _productMapper = productMapper;
+            _paymentWithPaypal = paymentWithPaypal;
         }
 
         [Route("PaymentWithPaypal")]
         [HttpPost]
         public async Task<IHttpActionResult> PaymentWithPaypal(PaymentPaypalJsonModel paymentPaypalJsonModel)
         {
+            paymentPaypalJsonModel = new PaymentPaypalJsonModel();
+            paymentPaypalJsonModel.ProductId = 1;
+            paymentPaypalJsonModel.Url = "http://localhost:54619/";
+
             var product = await  _unityOfWork.Products.GetAsync(paymentPaypalJsonModel.ProductId);
 
-            PaypalRest.PaymentWithPaypal.Paypal(paymentPaypalJsonModel.Url, product);
+            var paypalRedirectUrl = _paymentWithPaypal.Paypal(paymentPaypalJsonModel.Url, product);
 
-            return Ok("Success");
+            return Ok(paypalRedirectUrl);
         }
     }
 }
