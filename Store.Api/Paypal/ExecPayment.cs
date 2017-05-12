@@ -1,21 +1,23 @@
 ﻿using PayPal.Api;
 using Store.DAL.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store.Api.Paypal
 {
     public class ExecPayment
     {
         private Payment payment;
+        private readonly int _tax = 1;
+        private readonly int _shipping = 1;
 
         public Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
         {
             var paymentExecution = new PaymentExecution() { payer_id = payerId };
-            payment = new Payment() { id = paymentId };
+
+            payment = new Payment()
+            {
+                id = paymentId
+            };
 
             return payment.Execute(apiContext, paymentExecution);
         }
@@ -49,15 +51,15 @@ namespace Store.Api.Paypal
 
             var details = new Details()
             {
-                tax = "1",
-                shipping = "1",
+                tax = _tax.ToString(),
+                shipping = _shipping.ToString(),
                 subtotal = product.Price.ToString()
             };
 
             var amount = new Amount()
             {
                 currency = "USD",
-                total = "14",
+                total = GetTotalAmount(product.Price, _tax, _shipping).ToString(),
                 details = details
             };
 
@@ -80,6 +82,11 @@ namespace Store.Api.Paypal
             };
 
             return payment.Create(apiContext);
+        }
+
+        private decimal GetTotalAmount(decimal productPrice, int  tax, int shipping)
+        {
+            return productPrice + tax + shipping;
         }
     }
 }

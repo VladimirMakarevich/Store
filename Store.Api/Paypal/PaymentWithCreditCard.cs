@@ -1,10 +1,6 @@
-﻿using log4net.Repository.Hierarchy;
-using PayPal.Api;
+﻿using PayPal.Api;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store.Api.Paypal
 {
@@ -90,7 +86,6 @@ namespace Store.Api.Paypal
             catch (PayPal.PayPalException ex)
             {
                 throw ex;
-                //Logger.Log("Error: " + ex.Message);
             }
         }
     }
