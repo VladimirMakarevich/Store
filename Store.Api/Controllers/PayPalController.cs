@@ -31,9 +31,9 @@ namespace Store.Api.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> PaymentWithPaypal(PaymentPaypalJsonModel paymentPaypalJsonModel)
         {
-            paymentPaypalJsonModel = new PaymentPaypalJsonModel();
-            paymentPaypalJsonModel.ProductId = 1;
-            paymentPaypalJsonModel.Url = "http://localhost:54619/";
+            //paymentPaypalJsonModel = new PaymentPaypalJsonModel();
+            //paymentPaypalJsonModel.ProductId = 1;
+            //paymentPaypalJsonModel.Url = "http://localhost:54619/";
 
             var product = await  _unityOfWork.Products.GetAsync(paymentPaypalJsonModel.ProductId);
 
