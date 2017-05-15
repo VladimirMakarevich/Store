@@ -29,12 +29,9 @@ namespace Store.Api.Controllers
 
         [Route("PaymentWithPaypal")]
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IHttpActionResult> PaymentWithPaypal(PaymentPaypalJsonModel paymentPaypalJsonModel)
         {
-            //paymentPaypalJsonModel = new PaymentPaypalJsonModel();
-            //paymentPaypalJsonModel.ProductId = 1;
-            //paymentPaypalJsonModel.Url = "http://localhost:54619/";
-
             var product = await  _unityOfWork.Products.GetAsync(paymentPaypalJsonModel.ProductId);
 
             var paypalRedirectUrl = _paymentWithPaypal.Paypal(paymentPaypalJsonModel.Url, product);
