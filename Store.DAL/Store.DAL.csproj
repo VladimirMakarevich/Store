@@ -75,6 +75,10 @@
     <Compile Include="Migrations\201705041002531_changed-dependency-to-product-from-category.Designer.cs">
       <DependentUpon>201705041002531_changed-dependency-to-product-from-category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705161644557_my-migration-for-test.cs" />
+    <Compile Include="Migrations\201705161644557_my-migration-for-test.Designer.cs">
+      <DependentUpon>201705161644557_my-migration-for-test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705041002531_changed-dependency-to-product-from-category.resx">
       <DependentUpon>201705041002531_changed-dependency-to-product-from-category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705161644557_my-migration-for-test.resx">
+      <DependentUpon>201705161644557_my-migration-for-test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
