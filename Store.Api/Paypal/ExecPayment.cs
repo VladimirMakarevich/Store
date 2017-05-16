@@ -7,8 +7,8 @@ namespace Store.Api.Paypal
     public class ExecPayment
     {
         private Payment payment;
-        private readonly int _tax = 1;
-        private readonly int _shipping = 1;
+        private const int _tax = 1;
+        private const int _shipping = 1;
 
         public Payment ExecutePayment(APIContext apiContext, string payerId, string paymentId)
         {

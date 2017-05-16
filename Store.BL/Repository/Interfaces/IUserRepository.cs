@@ -11,6 +11,6 @@ namespace Store.BL.Repository.Interfaces
 {
     public interface IUserRepository<T> where T : class
     {
-        Task<IdentityResult> CreateAsync(User user, string password);
+        Task CreateAsync(User user, string password);
     }
 }

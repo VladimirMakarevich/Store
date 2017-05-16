@@ -21,9 +21,12 @@ namespace Store.BL.Repository
             _userManager = userManager;
         }
 
-        public async Task<IdentityResult> CreateAsync(User user, string password)
+        public async Task CreateAsync(User user, string password)
         {
-            return await _userManager.CreateAsync(user, password);
+            user.UserName = user.Email;
+
+            _db.Users.Add(user);
+            await _db.SaveChangesAsync();
         }
     }
 }

@@ -44,12 +44,7 @@ namespace Store.Api.Controllers
 
             var user = _userMapper.ToUser(registrationUser);
 
-            var result = await _unityOfWork.Users.CreateAsync(user, registrationUser.Password);
-
-            if (!result.Succeeded)
-            {
-                return GetErrorResult(result);
-            }
+            await _unityOfWork.Users.CreateAsync(user, registrationUser.Password);
 
             return Ok();
         }

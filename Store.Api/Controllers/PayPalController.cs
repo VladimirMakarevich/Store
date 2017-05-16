@@ -30,7 +30,7 @@ namespace Store.Api.Controllers
         [Route("PaymentWithPaypal")]
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IHttpActionResult> PaymentWithPaypal(PaymentPaypalJsonModel paymentPaypalJsonModel)
+        public async Task<IHttpActionResult> PaymentWithPaypal([FromBody]PaymentPaypalJsonModel paymentPaypalJsonModel)
         {
             var product = await  _unityOfWork.Products.GetAsync(paymentPaypalJsonModel.ProductId);
 
